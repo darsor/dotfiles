@@ -13,6 +13,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'wombat256.vim'
 
 call vundle#end()
 filetype plugin on
@@ -43,7 +44,7 @@ set hidden
 
 "turn on syntax highlighting
 syntax on
-colorscheme wombat256
+colorscheme wombat256mod
 
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
