@@ -14,6 +14,16 @@ fi
 BASE16_SHELL="$HOME/.config/base16-shell/base16-custom.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
+# Set up CPU temp for i3status
+if [ -h "/home/darsor/.bashscripts/temp" ] ; then
+    rm "/home/darsor/.bashscripts/temp"
+fi
+if [ -a "/sys/devices/platform/coretemp.0/hwmon/hwmon0/temp1_input" ] ; then
+    ln -s "/sys/devices/platform/coretemp.0/hwmon/hwmon0/temp1_input" "/home/darsor/.bashscripts/temp"
+else
+    ln -s "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input" "/home/darsor/.bashscripts/temp"
+fi
+
 # Colorize man pages
 man() {
     env \
