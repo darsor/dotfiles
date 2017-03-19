@@ -265,6 +265,7 @@ exec compton -CGb
 for_window [title="Mandelbrot Explorer"] floating enable
 for_window [title="Technic Launcher"] floating enable
 for_window [title="onboard"] floating enable
+for_window [title="galculator"] floating enable
 
 # start compton window compositor
 #exec --no-startup-id compton -CGb
