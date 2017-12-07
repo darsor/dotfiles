@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# start a new session named gdb, let it remain detached
+tmux new-session -s gdb -d
+
+# split the pane
+tmux split-window -h -t gdb:0.0
+
+# get the pty fd of the new pane
+PTS=$(tmux list-panes -F "#{pane_tty}" -t gdb:0 | tail -n 1)
+
+# put that pane to sleep (indefinitely)
+tmux send-keys -t gdb:0.1 "while true; do sleep 10; done" C-m
+# clear the sleep command in the second pane (makes it look nice)
+sleep 0.2 && tmux send-keys -R -t gdb:0.1 &
+
+# focus the original pane
+tmux select-pane -t gdb:0.0
+
+# run GDB, set tty to second pane, source layout mode
+GDB_CMD="gdb $1 -ex \"tty ${PTS}\" -ex \"layout src\""
+tmux send-keys -t gdb:0.0 "${GDB_CMD}" C-m
+
+# finally, attach the session
+tmux attach -t gdb

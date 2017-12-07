@@ -1,0 +1,4 @@
+#!/bin/bash
+FILENAME=~/misc/screenshots/$(date +%Y-%m-%dT%H%M%S).png
+maim -u $FILENAME
+xclip -selection clipboard -t image/png $FILENAME

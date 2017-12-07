@@ -1,0 +1,4 @@
+#!/bin/bash
+/usr/local/bin/lock &
+sleep 1
+systemctl suspend
