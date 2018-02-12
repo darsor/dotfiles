@@ -1,0 +1,39 @@
+Lock screen on wakeup:
+    Created /etc/systemd/system/lock.service, which hooks the suspend.target
+    to run /home/darsor/.local/bin/lock when it wakes up. Doesn't seem to work
+    for hibernate for some reason.
+
+Screen tearing:
+    Created /etc/X11/xorg.conf.d/20-intel.conf, set "TearFree" option to "true"
+
+Font stuff:
+    Followed https://www.reddit.com/r/archlinux/comments/5r5ep8/make_your_arch_fonts_beautiful_easily/
+    Enabled font presets by creating symbolic links for
+        70-no-bitmaps
+        10-sub-pixel-rgb
+        11-lcdfilter-default
+    Then created /etc/fonts/local.conf, which should set up global aliases
+    for serif, sans-serif, mono, etc. Left it as default Noto font.
+
+Thinkpad battery limits:
+    set to start below 75% and stop at 85%
+    set in /etc/default/tlp
+
+Vivado:
+    installed ncurses5-compat-libs (AUR) dependency for installer
+        ran `gpg --recv-keys 702353E0F7E48EDB` to install
+    installed Vivado to /opt/Xilinx
+        made darsor owner of /opt/Xilinx
+    symlinked libstdc++.so.6 from /usr/lib/ to /opt/Xilinx/Vivado/2015.4/lib/lnx64.o/ to get the license manager to work
+    saved Xilinx.lic webpack license file to /opt/Xilinx
+    user specific files stored in ~/.Xilinx
+    installed digilent cable drivers (/etc/udev/rules.d/52-xilinx-{pc}usb.rules)
+    created vivado, xsdk, and xilinx-docnav launch scripts in ~/.local/bin
+    patched rt.jar as per https://stackoverflow.com/questions/24496642/howto-force-java-text-antialiasing-on,
+        placed it in /opt/Xilinx, then added export _JAVA_OPTIONS in launchscript
+
+CPU temp:
+    the file /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input changes
+    places (the hwmon3 is sometimes hwmon4 or others). I disabled
+    lm_sensors.service and instead created /etc/modules-load.d/coretemp.conf,
+    which should (hopefully) make it stop changing.
