@@ -38,25 +38,32 @@
 #keystate_scrolllock= enable
 
 # calculator
-"galculator"
+"gnome-calculator"
     XF86Calculator
 
 # screen brighness controls
-"xbacklight -inc 2"
+"xbacklight -inc 1"
     XF86MonBrightnessUp
-"xbacklight -dec 2"
+"xbacklight -dec 1"
     XF86MonBrightnessDown
 
 # Pulse Audio controls
-"amixer -q set Master 5%+ unmute"
+"pactl set-sink-mute @DEFAULT_SINK@ false ; pactl set-sink-volume @DEFAULT_SINK@ +5%"
     XF86AudioRaiseVolume
-"amixer -q set Master 5%- unmute"
+"pactl set-sink-mute @DEFAULT_SINK@ false ; pactl set-sink-volume @DEFAULT_SINK@ -5%"
     XF86AudioLowerVolume
-"amixer -q -D pulse sset Master toggle"
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
     XF86AudioMute
+
+# Screen blank
+"xset dpms force off"
+    XF86Tools
 
 "xkill"
     Control + Delete
+
+"/home/darsor/.local/bin/screenshot"
+    Print
 
 # Examples
 #
