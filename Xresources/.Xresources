@@ -10,11 +10,15 @@ URxvt*modifier: alt
 !URxvt.boldFont:        xft:DejaVu Sans Mono:pixelsize=14:style=Bold
 !URxvt.font:            xft:Monospace:size=10.5
 !URxvt.boldFont:        xft:Monospace:bold:size=10.5
-URxvt.font:             xft:Meslo LG M for Powerline:size=10.5
-URxvt.boldFont:         xft:Meslo LG M:bold:size=10.5
-URxvt.italicFont:       xft:Meslo LG M:italic:size=10.5
-URxvt.boldItalicFont:   xft:Meslo LG M:bold:italic:size=10.5
-URxvt.letterSpace:-1
+!URxvt.font:             xft:Meslo LG M for Powerline:size=10.5
+!URxvt.boldFont:         xft:Meslo LG M:bold:size=10.5
+!URxvt.italicFont:       xft:Meslo LG M:italic:size=10.5
+!URxvt.boldItalicFont:   xft:Meslo LG M:bold:italic:size=10.5
+URxvt.font:             xft:Roboto Mono Medium for Powerline:size=11
+URxvt.boldFont:         xft:Roboto Mono Medium for Powerline:bold:size=11
+URxvt.italicFont:       xft:Roboto Mono Medium for Powerline:italic:size=11
+URxvt.boldItalicFont:   xft:Roboto Mono Medium for Powerline:bold:italic:size=11
+!URxvt.letterSpace:-1
 URxvt.saveLines: 5000
 
 ! Disable Keycap Picture Insert and ISO-14755 Mode. Trigger by Ctrl-Shift
