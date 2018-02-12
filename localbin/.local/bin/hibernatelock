@@ -1,4 +1,4 @@
 #!/bin/bash
-/usr/local/bin/lock &
+/home/darsor/.local/bin/lock &
 sleep 1
 systemctl hibernate
