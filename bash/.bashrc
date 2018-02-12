@@ -32,9 +32,6 @@ resolve() {
     cd "`readlink -f .`"
 }
 
-# Auto cd
-shopt -s autocd
-
 # Set the browser for offline arch wiki
 export wiki_browser=chromium
 
@@ -44,10 +41,13 @@ alias maxima='rlwrap maxima'
 alias shutdown='sudo shutdown -h now'
 alias hibernate='systemctl hibernate'
 alias gotobed='systemctl hibernate'
-alias pi='ssh -p 8149  darsor@dapi.bluezone.usu.edu'
-alias cspi='ssh danapi-eth.bluezone.usu.edu -p 8149'
 alias drivepi='sshfs -p 8149 darsor@dapi.bluezone.usu.edu:drive pi'
 alias starwars='telnet towel.blinkenlights.nl'
 export VISUAL=vim
 export EDITOR=vim
 export HISTCONTROL=ignoredups
+
+# put ~/.local/bin on the path
+export PATH=/home/darsor/.local/bin:$PATH
+export SUDO_EDITOR=vim
+
