@@ -12,8 +12,11 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'wombat256.vim'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
 call vundle#end()
 filetype plugin on
@@ -27,7 +30,7 @@ endif
 
 " ================ General Config ====================
 
-set number                      "Line numbers are good
+set number relativenumber       "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
