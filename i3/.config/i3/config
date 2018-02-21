@@ -224,6 +224,7 @@ for_window [title="galculator"] floating enable
 for_window [title="Pushbullet"] floating enable
 for_window [instance="gnuplot"] floating enable
 for_window [title="CubicSDR :: SDR Devices"] floating enable
+for_window [class="Gnome-calculator"] floating enable
 
 # start compton window compositor
 #exec --no-startup-id compton -CGb
