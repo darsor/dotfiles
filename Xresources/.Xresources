@@ -21,6 +21,9 @@ URxvt.boldItalicFont:   xft:Roboto Mono Medium for Powerline:bold:italic:size=11
 !URxvt.letterSpace:-1
 URxvt.saveLines: 5000
 
+! Resize fonts on the fly
+URxvt.perl-ext-common:  resize-font
+
 ! Disable Keycap Picture Insert and ISO-14755 Mode. Trigger by Ctrl-Shift
 URxvt.iso14755_52:        false
 URxvt.iso14755:           false

@@ -1,3 +1,8 @@
+Resize urxvt fonts on the fly:
+    Installed urxvt-resize-font-git from aur
+    added "URxvt.perl-ext-common:  resize-font" to .Xresources
+
+
 Lock screen on wakeup:
     Created /etc/systemd/system/lock.service, which hooks the suspend.target
     to run /home/darsor/.local/bin/lock when it wakes up. Doesn't seem to work
