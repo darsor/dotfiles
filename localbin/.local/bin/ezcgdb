@@ -3,6 +3,10 @@
 # start a new session named gdb, let it remain detached
 tmux new-session -s gdb -d
 
+# start cgdb
+GDB_CMD="cgdb $1"
+tmux send-keys -t gdb:0.0 "${GDB_CMD}" C-m
+
 # split the pane
 tmux split-window -h -t gdb:0.0
 
@@ -17,9 +21,10 @@ sleep 0.2 && tmux send-keys -R -t gdb:0.1 &
 # focus the original pane
 tmux select-pane -t gdb:0.0
 
-# run GDB, set tty to second pane, source layout mode
-GDB_CMD="cgdb $1 -tty=${PTS}"
-tmux send-keys -t gdb:0.0 "${GDB_CMD}" C-m
+# set tty to second pane
+tmux send-keys -t gdb:0.0 "" C-m
+sleep 0.5
+tmux send-keys -t gdb:0.0 "tty ${PTS}" C-m
 
 # finally, attach the session
 tmux attach -t gdb
