@@ -105,6 +105,8 @@ set nofoldenable        "dont fold by default
 
 " ================ Completion =======================
 
+" don't automatically continue comments
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 set wildmode=list:longest
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
@@ -193,6 +195,7 @@ let g:airline#extensions#syntastic#enabled=1
 let g:airline_theme='wombat'
 let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
+let g:syntastic_cpp_check_header = 1
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
