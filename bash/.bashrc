@@ -49,12 +49,10 @@ export HISTCONTROL=ignoredups
 
 # put ~/.local/bin on the path
 export PATH=/home/darsor/.local/bin:$PATH
+
 export SUDO_EDITOR=vim
 
-# source ROS lunar environment setup
-if [ -f "/opt/ros/lunar/setup.bash" ] ; then
-    source /opt/ros/lunar/setup.bash
-fi
-# make sure catkin_make uses python2
-alias catkin_make='catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python2 -DPYTHON_INCLUDE_DIR=/usr/include/python2.7 -DPYTHON_LIBRARY=/usr/lib/libpython2.7.so'
+# GNU Radio
+export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
