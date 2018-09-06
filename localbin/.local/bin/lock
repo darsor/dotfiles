@@ -1,12 +1,12 @@
 #!/bin/bash
 if ! pgrep -x "i3lock" > /dev/null
 then
-    scrot /tmp/screen.png
-    convert /tmp/screen.png -scale 10% -scale 1000% /tmp/screen.png
-    [[ -f $1 ]] && convert /tmp/screen.png $1 -gravity center -composite -matte /tmp/screen.png
-    xautolock -time 1 -locker "systemctl suspend" &
-    i3lock -i /tmp/screen.png --nofork
-    rm /tmp/screen.png
+    scrot /tmp/i3lock.png
+    convert /tmp/i3lock.png -scale 10% -scale 1000% /tmp/i3lock.png
+    [[ -f $1 ]] && convert /tmp/i3lock.png $1 -gravity center -composite -matte /tmp/i3lock.png
+    xautolock -time 10 -locker "systemctl suspend-then-hibernate" &
+    i3lock -i /tmp/i3lock.png --nofork
+    rm /tmp/i3lock.png
     sleep 1
     xautolock -exit
 fi

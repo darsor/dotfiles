@@ -1,4 +1,0 @@
-#!/bin/bash
-/home/darsor/.local/bin/lock &
-sleep 1
-systemctl suspend

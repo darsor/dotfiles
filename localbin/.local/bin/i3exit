@@ -11,10 +11,10 @@ case "$1" in
         i3-msg exit
         ;;
     suspend)
-        /home/darsor/.local/bin/suspendlock
+        systemctl suspend-then-hibernate
         ;;
     hibernate)
-        /home/darsor/.local/bin/hibernatelock
+        systemctl hibernate
         ;;
     reboot)
         systemctl reboot

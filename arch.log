@@ -2,11 +2,15 @@ Resize urxvt fonts on the fly:
     Installed urxvt-resize-font-git from aur
     added "URxvt.perl-ext-common:  resize-font" to .Xresources
 
+Lock screen on suspend and hibernate:
+    Created /etc/systemd/system/screenlock@.service, which runs right before suspend
+        enabled screenlock@darsor.service
+        runs /usr/bin/lock, then sleeps 1 second
 
-Lock screen on wakeup:
-    Created /etc/systemd/system/lock.service, which hooks the suspend.target
-    to run /home/darsor/.local/bin/lock when it wakes up. Doesn't seem to work
-    for hibernate for some reason.
+Suspend then hibernate:
+    Added HibernateDelaySec=5400 to [Sleep] section of /etc/systemd/sleep.conf
+    Modified HandleLidSwitch=suspend-then-hibernate in /etc/systemd/logind.conf
+    Changed custom user scripts to use "systemd suspend-then-hibernate" instead of "systemd suspend"
 
 Screen tearing:
     Created /etc/X11/xorg.conf.d/20-intel.conf, set "TearFree" option to "true"
@@ -42,3 +46,11 @@ CPU temp:
     places (the hwmon3 is sometimes hwmon4 or others). I disabled
     lm_sensors.service and instead created /etc/modules-load.d/coretemp.conf,
     which should (hopefully) make it stop changing.
+
+Fingerprint scanner:
+    installed libfprint and fprintd
+    modified /etc/pam.d/{system-local-login,sudo,su} and added pam_fprintd.so as sufficient
+    installed libfprint-vfs0097-git from AUR (replaced libfprint)
+    created /etc/polkit-1/rules.d/50-net.reactivated.fprint.device.enroll.rules to restrict enrolling
+    modified /etc/pam.d/i3lock following https://bbs.archlinux.org/viewtopic.php?id=176181
+
