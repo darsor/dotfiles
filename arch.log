@@ -43,7 +43,7 @@ Vivado:
 
 CPU temp:
     the file /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input changes
-    places (the hwmon3 is sometimes hwmon4 or others). I disabled
+        places (the hwmon3 is sometimes hwmon4 or others). I disabled
     lm_sensors.service and instead created /etc/modules-load.d/coretemp.conf,
     which should (hopefully) make it stop changing.
 
@@ -53,4 +53,10 @@ Fingerprint scanner:
     installed libfprint-vfs0097-git from AUR (replaced libfprint)
     created /etc/polkit-1/rules.d/50-net.reactivated.fprint.device.enroll.rules to restrict enrolling
     modified /etc/pam.d/i3lock following https://bbs.archlinux.org/viewtopic.php?id=176181
+
+Touchpad gestures:
+    installed libinput-gestures (AUR)
+    modified configuration file located at /etc/libinput-gestures.conf
+    added user to input group
+    set to autostart at login via `libinput-gestures-setup autostart`
 
